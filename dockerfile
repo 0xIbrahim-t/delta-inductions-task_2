@@ -1,6 +1,7 @@
 FROM ubuntu
 
 COPY app /scripts
+COPY setup.sh .
 
 RUN apt-get update
 RUN apt-get install sudo
