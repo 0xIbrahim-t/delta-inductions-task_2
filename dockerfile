@@ -9,7 +9,6 @@ RUN apt-get install adduser -y
 RUN mv /scripts/mentorDetails.txt .
 RUN mv /scripts/menteeDetails.txt .
 RUN chmod -R 700 /scripts/start.sh
-RUN chmod -R 700 setup.sh 
 RUN mkdir /logs
-
-CMD ./setup.sh
+RUN /scripts/start.sh &> /logs/start.log
+RUN userGen &> /logs/usergen.log
