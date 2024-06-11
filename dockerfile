@@ -1,8 +1,10 @@
 FROM ubuntu
 
-COPY app /
+COPY app /app
 
-RUN chmod -R 777 app/start.sh
-RUN app/start.sh
+RUN mv app scripts
+RUN chmod -R 777 scripts/start.sh
 RUN mkdir /logs
+RUN scripts/start.sh &> /logs/start.log
+RUN cd -
 RUN userGen &> /logs/usergen.log
