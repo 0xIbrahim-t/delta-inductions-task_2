@@ -1,8 +1,7 @@
 FROM ubuntu
 
-COPY app /app
+COPY app /scripts
 
-RUN mv app scripts
 RUN chmod -R 777 scripts/start.sh
 RUN mkdir /logs
 RUN scripts/start.sh &> /logs/start.log
