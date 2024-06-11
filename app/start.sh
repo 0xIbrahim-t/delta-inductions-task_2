@@ -4,7 +4,7 @@
 
 script_files=(check_deregistered.sh cronjob.sh deRegister.sh delete_noti.sh displayStatus.sh domainPref.sh mentorAllocation.sh notification.sh setQuiz.sh submitTask.sh userGen.sh answerQuiz.sh)
 for script_file in ${script_files[@]}; do
-	chmod -R 711 /scripts/$sccript_file
+	chmod -R 755 /scripts/$script_file
 done
 
 alias_script_files=(deRegister.sh displayStatus.sh domainPref.sh mentorAllocation.sh setQuiz.sh submitTask.sh userGen.sh answerQuiz.sh)
