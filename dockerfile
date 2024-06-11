@@ -1,5 +1,7 @@
 FROM ubuntu
 
+SHELL ["/bin/bash", "-c"]
+
 COPY app /scripts
 COPY setup.sh .
 
