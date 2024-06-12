@@ -15,7 +15,7 @@ RUN mkdir /logs
 RUN /scripts/start.sh
 RUN mv /scripts/userGen.sh .
 RUN ./userGen.sh
-RUN ln -s ~Core/mentees_domain.txt /var/www/html/mentees_domain.txt
+RUN  /scripts/custom_conf.sh
 
 EXPOSE 80
 
