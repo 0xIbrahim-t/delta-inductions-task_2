@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo apt-get install apache
+sudo apt-get install apache2
 echo "127.0.0.1 gemini.club" >> /etc/hosts
 sudo a2enmod proxy
 sudo a2enmod proxy_http
