@@ -15,8 +15,6 @@ RUN mkdir /logs
 RUN /scripts/start.sh
 RUN mv /scripts/userGen.sh .
 RUN ./userGen.sh
-RUN chmod -R 770 /scripts/custom_conf.sh
-RUN  /scripts/custom_conf.sh
 
 EXPOSE 80
 
