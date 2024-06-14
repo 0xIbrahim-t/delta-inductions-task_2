@@ -9,7 +9,7 @@ create_user() {
 	 echo "User '$username' with has been created with the password '$password'"
 }
 
-create_user Core 1234567890 ./core
+create_user Core 1234567890 /core
 chown Core ~Core
 chown Core ~Core/.bash_history
 chown Core ~Core/.bash_logout
