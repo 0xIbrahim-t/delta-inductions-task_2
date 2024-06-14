@@ -4,7 +4,7 @@
 
 
 if [ -f ~/domain_pref.txt ]; then
-	rollnumber=first_line=$(awk 'NR==1 {print; exit}' "$HOME/rollnumber.txt")
+	rollnumber=$(awk 'NR==1 {print; exit}' "$HOME/rollnumber.txt")
 	tasks_completed=(n n n n n n n n n)
 	mentee_dom=()
 	for d in sysad web app; do
