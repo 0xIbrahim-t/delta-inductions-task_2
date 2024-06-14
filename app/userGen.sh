@@ -9,7 +9,7 @@ create_user() {
 	 echo "User '$username' with has been created with the password '$password'"
 }
 
-create_user Core 1234567890 $(pwd)/core
+create_user Core 1234567890 ./core
 chown Core ~Core
 chown Core ~Core/.bash_history
 chown Core ~Core/.bash_logout
@@ -26,13 +26,13 @@ chown Core ~Core/mentors/Webdev
 chown Core ~Core/mentors/Appdev
 chown Core ~Core/mentors/Sysad
 chown Core ~Core/mentees
-chmod 711 $(pwd)core/mentees
-chmod 711 $(pwd)/core
-chmod 711 $(pwd)
-chmod 711 $(pwd)/core/mentors
-chmod 711 $(pwd)/core/mentors/Sysad
-chmod 711 $(pwd)/core/mentors/Appdev
-chmod 711 $(pwd)/core/mentors/Webdev
+chmod 711 ./core/mentees
+chmod 711 ./core
+chmod 711 .
+chmod 711 ./core/mentors
+chmod 711 ./core/mentors/Sysad
+chmod 711 ./core/mentors/Appdev
+chmod 711 ./core/mentors/Webdev
 touch ~Core/mentees_domain.txt
 cp menteeDetails.txt ~Core
 cp mentorDetails.txt ~Core
