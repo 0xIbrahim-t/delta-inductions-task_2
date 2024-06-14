@@ -9,7 +9,7 @@ RUN apt-get install sudo -y
 RUN apt-get install adduser -y
 RUN apt-get install -y apache2
 RUN apt-get install -y python3 python3-pip mysql-client
-RUN pip3 install mysql-connector-python
+RUN apt-get install python3-mysql-connector-python
 RUN mv /scripts/mentorDetails.txt .
 RUN mv /scripts/menteeDetails.txt .
 RUN chmod -R 700 /scripts/start.sh
