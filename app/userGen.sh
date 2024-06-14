@@ -48,6 +48,8 @@ groupadd core_mentee_group
 usermod -aG core_mentee_group Core
 while read line; do
 	mentee=$(echo "$line" | awk '{print $1}')
+ 	mentee_db=$mentee
+  	export mentee_db
 	mentees+=($mentee)
 	roll_number=$(echo "$line" | awk '{print $2}')
 	create_user "$mentee" 123456789 ~Core/mentees/$mentee
