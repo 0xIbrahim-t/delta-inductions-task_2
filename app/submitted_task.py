@@ -1,9 +1,7 @@
 import mysql.connector
 import os
 
-domain = os.getenv('doma')
 name = os.getenv('USER')
-rollnum = os.getenv('rollnumber')
 submitted_Task = os.getenv('submittedTask')
 db_host = os.getenv('dbHost')
 
