@@ -3,9 +3,8 @@ import os
 
 name = os.getenv('USER')
 submitted_Task = os.getenv('submittedTask')
-db_host = os.getenv('dbHost')
 
-mydb = mysql.connector.connect(host=db_host,user="username",password="password",database="db_name")
+mydb = mysql.connector.connect(host="db",user="username",password="password",database="db_name")
 mycursor = mydb.cursor()
 
 mycursor.execute(f"DROP TABLE IF EXISTS {name}_task_submitted")
