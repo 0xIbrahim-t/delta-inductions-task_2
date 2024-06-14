@@ -49,6 +49,7 @@ if [ -f ~/domain_pref.txt ]; then
 			v=$(($v+1))
 		done
 	done
+ 	export submittedTask
  	python3 /scripts/submitted_task.py
 
 elif [ -f ~/allocatedMentees.txt ]; then
