@@ -11,7 +11,7 @@ mycursor.execute(f"DROP TABLE IF EXISTS {name}_task_submitted")
 mycursor.execute(f"create table {name}_task_submitted (Task_number INT, Sysad VARCHAR(1), Web VARCHAR(1), App VARCHAR(1))")
 
 for num in [0, 1, 2]:
-    mycursor.execute(f"INSERT INTO {name}_task_submitted (Task_number, Sysad, Web, App) Values ({num}, {submitted_Task[num]}, {submitted_Task[num+3]}, {submitted_Task[num+6]})")
+    mycursor.execute(f"INSERT INTO {name}_task_submitted (Task_number, Sysad, Web, App) Values ({num + 1}, {submitted_Task[num]}, {submitted_Task[num+3]}, {submitted_Task[num+6]})")
 
 mycursor.close()
 mydb.close()
