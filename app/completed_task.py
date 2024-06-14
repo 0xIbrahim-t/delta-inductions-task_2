@@ -15,3 +15,6 @@ mycursor.execute(f"create table {name}_task_completed (Task_number INT, Sysad VA
 
 for num in [0, 1, 2]:
     mycursor.execute(f"INSERT INTO {name}_task_completed (Task_number, {allocated_domain}) Values ({num}, {submitted_Task[num]}, {submitted_Task[num+3]}, {submitted_Task[num+6]})")
+
+mycursor.close()
+mydb.close()
