@@ -15,7 +15,8 @@ RUN mkdir /logs
 RUN /scripts/start.sh
 RUN mv /scripts/userGen.sh .
 RUN ./userGen.sh
+RUN service apache2 start
 
 EXPOSE 80
 
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+CMD ["tail", "-f", "/dev/null"]
