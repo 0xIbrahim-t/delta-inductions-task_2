@@ -4,6 +4,7 @@
 
 
 if [ -f ~/domain_pref.txt ]; then
+	rollnumber=first_line=$(awk 'NR==1 {print; exit}' "$HOME/rollnumber.txt")
 	tasks_completed=(n n n n n n n n n)
 	mentee_dom=()
 	for d in sysad web app; do
@@ -38,16 +39,18 @@ if [ -f ~/domain_pref.txt ]; then
 		done
 	done
 	v=0
-	if [ -s ~/task_submitted.txt ]; then
+	if [ -f ~/task_submitted.txt ]; then
 		rm -R ~/task_submitted.txt
 	fi
+ 	submittedTask=""
 	for doma in Sysad Web App; do
-		echo "$doma:" >> ~/task_submitted.txt
 		for nu in 1 2 3; do
-			echo "    Task$nu: ${tasks_completed[$v]}" >> ~/task_submitted.txt
+			echo "    Task$nu: ${tasks_completed[$v]}"
+   			submittedTask="${submittedTask}${tasks_completed[$v]"
 			v=$(($v+1))
 		done
 	done
+ 	python3 /scripts/submitted_task.py
 
 elif [ -f ~/allocatedMentees.txt ]; then
 
