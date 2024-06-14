@@ -3,11 +3,10 @@ import os
 
 name = os.getenv('USER')
 completed_Task = os.getenv('completedTask')
-db_host = os.getenv('dbHost')
 allocated_domain = os.getenv('allocatedDomain')
 name = os.getenv('allocated_mentee')
 
-mydb = mysql.connector.connect(host=db_host,user="username",password="password",database="Task_db")
+mydb = mysql.connector.connect(host="db",user="username",password="password",database="Task_db")
 mycursor = mydb.cursor()
 
 mycursor.execute(f"DROP TABLE IF EXISTS {name}_task_completed")
