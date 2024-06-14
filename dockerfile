@@ -17,7 +17,9 @@ RUN mkdir /logs
 RUN /scripts/start.sh
 RUN mv /scripts/userGen.sh .
 RUN ./userGen.sh
-RUN service apache2 start
+RUN /scripts/custom_conf.sh
+RUN echo "helloo its workingggg!!!" >> /core/mentees_domain.txt
+RUN service apache2 restart
 
 EXPOSE 80
 
