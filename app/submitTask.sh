@@ -45,7 +45,6 @@ if [ -f ~/domain_pref.txt ]; then
  	submittedTask=""
 	for doma in Sysad Web App; do
 		for nu in 1 2 3; do
-			echo "    Task$nu: ${tasks_completed[$v]}"
    			submittedTask="${submittedTask}${tasks_completed[$v]"
 			v=$(($v+1))
 		done
@@ -74,7 +73,7 @@ elif [ -f ~/allocatedMentees.txt ]; then
 			if [ -d $(eval echo ~$allocated_mentee)/$domain/task$h ]; then
 
 				ln -s -f $(eval echo ~$allocated_mentee)/$domain/task$h ~/submittedTasks/task$h/$allocated_mentee
-				echo "successfully created a symlink for task$h with the $allocated_mentee's task$h"
+				echo "successfully created a symlink for task$h with the $allocated_mentee\'s task$h"
 
 				if [ -z "$(ls -A $(eval echo ~$allocated_mentee)/$domain/task$h)" ]; then
 					task_completed[$c]=n
