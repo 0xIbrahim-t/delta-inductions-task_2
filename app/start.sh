@@ -2,7 +2,7 @@
 
 
 
-script_files=(check_deregistered.sh cronjob.sh deRegister.sh delete_noti.sh displayStatus.sh domainPref.sh mentorAllocation.sh notification.sh setQuiz.sh submitTask.sh userGen.sh answerQuiz.sh)
+script_files=(check_deregistered.sh completed_task.py custom_conf.sh start_db_1.py start_db_2.py submitted_task.py cronjob.sh deRegister.sh delete_noti.sh displayStatus.sh domainPref.sh mentorAllocation.sh notification.sh setQuiz.sh submitTask.sh userGen.sh answerQuiz.sh)
 for script_file in ${script_files[@]}; do
 	chmod -R 755 /scripts/$script_file
 done
