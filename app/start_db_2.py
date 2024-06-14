@@ -15,7 +15,7 @@ if result:
 else:
     mycursor.execute(f"create table {name}_task_completed (Task_number INT, Sysad VARCHAR(1), Web VARCHAR(1), App VARCHAR(1))")
     for num in [0, 1, 2]:
-        mycursor.execute(f"INSERT INTO {name}_task_completed (Task_number, Sysad, Web, App) Values ({num}, "n", "n", "n")")
+        mycursor.execute(f"INSERT INTO {name}_task_completed (Task_number, Sysad, Web, App) Values ({num + 1}, "n", "n", "n")")
 
 mycursor.close()
 mydb.close()
