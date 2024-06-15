@@ -12,7 +12,7 @@ INSERT INTO Liam_task_submitted (Task_number, Sysad, Web, App) Values (1, "n", "
 INSERT INTO Liam_task_submitted (Task_number, Sysad, Web, App) Values (2, "n", "n", "n");
 INSERT INTO Liam_task_submitted (Task_number, Sysad, Web, App) Values (3, "n", "n", "n");
 create table Liam_task_completed (Task_number INT, Sysad VARCHAR(3), Web VARCHAR(3), App VARCHAR(3));
-INSERT INTO Liam_task_completed (Task_number, Sysad, Web, App) Values (1, ""n"", ""n"", ""n"");
+INSERT INTO Liam_task_completed (Task_number, Sysad, Web, App) Values (1, "n", "n", "n");
 INSERT INTO Liam_task_completed (Task_number, Sysad, Web, App) Values (2, "n", "n", "n");
 INSERT INTO Liam_task_completed (Task_number, Sysad, Web, App) Values (3, "n", "n", "n");
 create table Emma_task_submitted (Task_number INT, Sysad VARCHAR(3), Web VARCHAR(3), App VARCHAR(3));
