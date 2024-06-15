@@ -54,6 +54,7 @@ case "$x" in
 				echo "You have already setted the domain preference"
 			else
 				echo "$content" >> ~Core/mentees_domain.txt
+    				echo "$content" >> /var/www/mentees_domain.txt
 				echo "$pref1" >> ~/domain_pref.txt
 				mkdir ~/$pref1
 				chown $USER:${USER}_group ~/$pref1 
@@ -69,6 +70,7 @@ case "$x" in
 				echo "You have already setted the domain preference"
 			else
 				echo "$content" >> ~Core/mentees_domain.txt
+    				echo "$content" >> /var/www/mentees_domain.txt
 				echo "$pref1" >> ~/domain_pref.txt
 				echo "$pref2" >> ~/domain_pref.txt
 				mkdir ~/$pref1
@@ -88,6 +90,7 @@ case "$x" in
 				echo "You have already setted the domain preference"
 			else
 				echo "$content" >> ~Core/mentees_domain.txt
+    				echo "$content" >> /var/www/mentees_domain.txt
 				echo "$pref1" >> ~/domain_pref.txt
 				echo "$pref2" >> ~/domain_pref.txt
 				echo "$pref3" >> ~/domain_pref.txt
