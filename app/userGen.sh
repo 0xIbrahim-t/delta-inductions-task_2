@@ -79,8 +79,6 @@ while read line; do
 		echo "alias ${alias_script_file:0:-3}='/scripts/$alias_script_file'" >> $(eval echo ~$mentee)/.bashrc
 	done
 	source ~Core/mentees/$mentee/.bashrc
- 	python3 /scripts/start_db_1.py
-  	python3 /scripts/start_db_2.py
 done < ~Core/menteeDetails.txt
 
 while read line; do
