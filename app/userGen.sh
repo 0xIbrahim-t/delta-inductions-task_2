@@ -34,6 +34,7 @@ chmod 711 ./core/mentors/Sysad
 chmod 711 ./core/mentors/Appdev
 chmod 711 ./core/mentors/Webdev
 touch ~Core/mentees_domain.txt
+chmod -R 725 ~Core/mentees_domain.txt
 cp menteeDetails.txt ~Core
 cp mentorDetails.txt ~Core
 chown Core ~Core/menteeDetails.txt
