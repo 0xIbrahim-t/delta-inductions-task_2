@@ -3,6 +3,7 @@ version: '3.8'
 services:
   db:
     build: 
+      context: .
       dockerfile: dockerfile_db
     container_name: db_container
     environment:
@@ -15,6 +16,7 @@ services:
 
   app:
     build:
+      context: .
       dockerfile: dockerfile_app
     container_name: inductions_server_container
     depends_on:
