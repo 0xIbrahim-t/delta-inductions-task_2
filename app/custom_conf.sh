@@ -1,6 +1,7 @@
 #!/bin/bash
 
 touch /etc/apache2/sites-available/app.conf
+chmod -R 777 /var/www/mentees_domain.txt
 echo "<VirtualHost *:80>
      ServerAdmin webmaster@app
      ServerName app
