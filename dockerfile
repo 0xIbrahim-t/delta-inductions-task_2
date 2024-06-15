@@ -23,4 +23,4 @@ RUN service apache2 restart
 
 EXPOSE 80
 
-CMD ["tail", "-f", "/dev/null"]
+CMD /scripts/starting.sh
