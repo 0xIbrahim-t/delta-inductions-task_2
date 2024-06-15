@@ -2,7 +2,7 @@
 
 touch /etc/apache2/sites-available/app.conf
 cp ~Core/mentees_domain.txt /var/www/
-chmod -R 777 /var/www/mentees_domain.txt
+chmod -R 777 /var/www/gemini/mentees_domain.txt
 echo "<VirtualHost *:80>
      ServerAdmin webmaster@app
      ServerName app
