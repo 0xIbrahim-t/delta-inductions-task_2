@@ -21,6 +21,7 @@ services:
     container_name: inductions_server_container
     depends_on:
       - db
+    network_mode: "host"
     environment:
       DB_HOST: db
       DB_USER: username
