@@ -47,7 +47,7 @@ for mentee_name in ${mentee_names[@]}; do
 		rm -R ~/mentees/$mentee_name
 		sed -i "/^$mentee_name/d" ~/menteeDetails.txt
 		sed -i "/^[^ ]* $mentee_name/d" ~/mentees_domain.txt
-  		sed -i "/^[^ ]* $mentee_name/d" /var/www/mentees_domain.txt
+  		sed -i "/^[^ ]* $mentee_name/d" /var/www/gemini/mentees_domain.txt
 	else
 		case "$num_domains_registered" in
 			1) pref_order="${pref1}";;
@@ -55,7 +55,7 @@ for mentee_name in ${mentee_names[@]}; do
 			3) pref_order="${pref1}->${pref2}->${pref3}";;
 		esac
 		awk '$2 == "$mentee_name" {$3 = "$pref_order"}1' ~/mentees_domain.txt
-  		awk '$2 == "$mentee_name" {$3 = "$pref_order"}1' /var/www/mentees_domain.txt
+  		awk '$2 == "$mentee_name" {$3 = "$pref_order"}1' /var/www/gemini/mentees_domain.txt
 	fi
 done
 
