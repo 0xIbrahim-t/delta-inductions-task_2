@@ -7,7 +7,7 @@ echo "<VirtualHost *:80>
      ServerAdmin webmaster@app
      ServerName app
      ServerAlias www.app
-     DocumentRoot /var/www/
+     DocumentRoot /var/www/gemini
      DirectoryIndex mentees_domain.txt
 </VirtualHost>" >> /etc/apache2/sites-available/app.conf
 echo "ServerName app" >> /etc/apache2/apache2.conf
