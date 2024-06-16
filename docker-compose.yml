@@ -13,6 +13,8 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
+    volumes:
+      - db/db_data:/var/lib/mysql
 
   app:
     build:
@@ -28,3 +30,5 @@ services:
       DB_USER: username
       DB_PASSWORD: password
       DB_NAME: Task_db
+volumes:
+  db/db_data:
