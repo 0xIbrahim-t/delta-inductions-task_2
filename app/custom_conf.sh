@@ -11,9 +11,8 @@ echo "<VirtualHost *:80>
      DocumentRoot /var/www/gemini
      DirectoryIndex mentees_domain.txt
      <Directory /var/www/gemini>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
+          AllowOverride All
+          Require all granted
      </Directory>
 </VirtualHost>" >> /etc/apache2/sites-available/app.conf
 echo "ServerName app" >> /etc/apache2/apache2.conf
