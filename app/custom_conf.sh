@@ -1,6 +1,7 @@
 #!/bin/bash
 
 touch /etc/apache2/sites-available/app.conf
+mkdir /var/www/gemini
 cp ~Core/mentees_domain.txt /var/www/gemini
 chmod -R 777 /var/www/gemini/mentees_domain.txt
 echo "<VirtualHost *:80>
