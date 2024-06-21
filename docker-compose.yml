@@ -31,6 +31,21 @@ services:
       DB_PASSWORD: password
       DB_NAME: Task_db
 
+  web:
+    build:
+      context: .
+      dockerfile: dockerfile_web
+    container_name: web_app_container
+    depends_on:
+      - db
+    ports:
+      - "80:80"
+    environment:
+      DB_HOST: db
+      DB_USER: username
+      DB_PASSWORD: password
+      DB_NAME: Task_db
+
   phpmyadmin:
     image: phpmyadmin
     container_name: phpmyadmin_container
