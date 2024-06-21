@@ -7,3 +7,5 @@ while read line; do
   echo "INSERT INTO ${mentee}_task_submitted (Task_number, Sysad, Web, App) Values (2, "n", "n", "n");" >> db/init.sql
   echo "INSERT INTO ${mentee}_task_submitted (Task_number, Sysad, Web, App) Values (3, "n", "n", "n");" >> db/init.sql
 done < app/menteeDetails.txt
+
+echo "Database successfully initialized for the mysql containers"
