@@ -1,1 +1,5 @@
+CREATE USER 'user' IDENTIFIED BY 'pass';
+GRANT SELECT ON Task_db.* TO 'user';
+FLUSH PRIVILEGES;
+
 USE Task_db;
