@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "INSERT INTO web_users (rollnumber, username, password, usertype, doamin_1, domain_2, domain_3) Values ("none", "core", "1234567890", "core", "none", "none", "none");" >> db/init.sql
+
 while read line; do
 	mentee=$(echo "$line" | awk '{print $1}')
  	rollnumber=$(echo "$line" | awk '{print $2}')
