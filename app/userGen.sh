@@ -51,6 +51,7 @@ while read line; do
 	mentee=$(echo "$line" | awk '{print $1}')
 	mentees+=($mentee)
 	roll_number=$(echo "$line" | awk '{print $2}')
+ 	roll_number="${roll_number//[$'\n\r\t ']/}"
 	create_user "$mentee" 123456789 ~Core/mentees/$mentee
 	touch ~Core/mentees/$mentee/domain_pref.txt
 	touch ~Core/mentees/$mentee/task_completed.txt
