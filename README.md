@@ -1,6 +1,6 @@
 # delta-inductions-task_2
 
-### Please run this before starting the servers, to set up the database
+### Please run this before starting the servers, to set up the database, and run it only once
 > ./setup_init_db.sh
 
 ### to start the server
