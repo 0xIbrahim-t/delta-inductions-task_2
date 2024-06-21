@@ -1,5 +1,8 @@
 # delta-inductions-task_2
 
+### Please run this before starting the servers, to set up the database
+> ./setup_init_db.sh
+
 ### to start the server
 > docker-compose up -d
 
