@@ -4,7 +4,7 @@ import os
 name = os.getenv('USER')
 submitted_Task = os.getenv('submittedTask')
 
-mydb = mysql.connector.connect(host="db",user="username",password="password",database="db_name")
+mydb = mysql.connector.connect(host="db",user="username",password="password",database="Task_db")
 mycursor = mydb.cursor()
 
 for num in [0, 1, 2]:
