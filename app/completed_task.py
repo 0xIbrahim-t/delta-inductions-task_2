@@ -10,7 +10,8 @@ mydb = mysql.connector.connect(host="db",user="username",password="password",dat
 mycursor = mydb.cursor()
 
 for num in [0, 1, 2]:
-    mycursor.execute(f"UPDATE {name}_task_completed SET {allocated_domain} = '{completed_Task[num]}' WHERE Task_number = {num + 1};")
-
+    mycursor.execute(f"UPDATE {name}_task_completed SET {allocated_domain} = '{completed_Task[num]}' WHERE Task_number = {num + 1}")
+    
+mydb.commit()
 mycursor.close()
 mydb.close()
