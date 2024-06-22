@@ -61,6 +61,11 @@ for i in 0 1 2; do
 						echo "$mentor_name has been allocated as a mentor for $mentee_name for the domain Webdev"
 						touch $(eval echo ~$mentee_name)/mentorAllotted${domainpref[$i]}
 						chmod 700 $(eval echo ~$mentee_name)/mentorAllotted${domainpref[$i]}
+      						mentor=$mentor_name
+	    					mentee=$mentee_name
+      						export mentor
+	    					export mentee
+	  					python3 update_allocation.py
 						break
 					fi
 				done
@@ -73,6 +78,11 @@ for i in 0 1 2; do
 						echo "$mentor_name has been allocated as a mentor for $mentee_name for the domain Appdev"
 						touch ~Core/mentees/$mentee_name/mentorAllotted${domainpref[$i]}
 						chmod 700 $(eval echo ~$mentee_name)/mentorAllotted${domainpref[$i]}
+      						mentor=$mentor_name
+	    					mentee=$mentee_name
+      						export mentor
+	    					export mentee
+	  					python3 update_allocation.py
 						break
 					fi
 				done
@@ -85,6 +95,11 @@ for i in 0 1 2; do
 						echo "$mentor_name has been allocated as a mentor for $mentee_name for the domain Sysad"
 						touch $(eval echo ~$mentee_name)/mentorAllotted${domainpref[$i]}
 						chmod 700 $(eval echo ~$mentee_name)/mentorAllotted${domainpref[$i]}
+      						mentor=$mentor_name
+	    					mentee=$mentee_name
+      						export mentor
+	    					export mentee
+	  					python3 update_allocation.py
 						break
 					fi
 				done
