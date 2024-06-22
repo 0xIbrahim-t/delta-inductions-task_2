@@ -35,3 +35,100 @@ def login():
         else:
             flash('Invalid username or password. Please try again.', 'danger')
     return redirect(url_for('index'))
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/login')
+
+@app.route('/core')
+def core_dashboard():
+    if 'user_type' in session and session['user_type'] == 'core':
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT name FROM web_users WHERE user_type = 'mentee'")
+        mentees = cursor.fetchall()
+        cursor.execute("SELECT name FROM web_users WHERE user_type = 'mentor'")
+        mentors = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return render_template('core.html', mentees=mentees, mentors=mentors)
+    return redirect(url_for('index'))
+    
+@app.route('/mentor')
+def mentor_dashboard():
+    if 'user_type' in session:
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT domain_2 FROM web_users WHERE username = %s", (session['username'],))
+        mentees = cursor.fetchone()[0]
+        allocated_mentees = mentees.split(',')
+        cursor.execute("SELECT domain_1 FROM web_users WHERE username = %s", (session['username'],))
+        domain = cursor.fetchone()[0]
+        cursor.execute("SELECT rollnumber FROM web_users WHERE username = %s", (session['username'],))
+        mentor_capacity = cursor.fetchone()[0]
+        cursor.close()
+        conn.close()
+        return render_template('mentor.html', name=session['username'], allocated_mentees=allocated_mentees, domain=domain, mentor_capacity=mentor_capacity)
+    return redirect(url_for('index'))
+
+
+@app.route('/<mentee>')
+def view_attendance(mentee):
+    if 'user_type' in session:
+        conn = connect_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT usertype FROM web_users WHERE username = %s", (username,))
+        user_type = cursor.fetchone()[0]
+        cursor.execute("SELECT rollnumber FROM web_users WHERE username = %s", (username,))
+        rollnumber = cursor.fetchone()[0]
+        cursor.execute("SELECT domain_1 FROM web_users WHERE username = %s", (username,))
+        domain_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT domain_2 FROM web_users WHERE username = %s", (username,))
+        domain_2 = cursor.fetchone()[0]
+        cursor.execute("SELECT domain_3 FROM web_users WHERE username = %s", (username,))
+        domain_3 = cursor.fetchone()[0]
+        cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 1")
+        sysad_submitted_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 1")
+        web_submitted_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 1")
+        app_submitted_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 2")
+        sysad_submitted_2 = cursor.fetchone()[0]
+        cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 2")
+        web_submitted_2 = cursor.fetchone()[0]
+        cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 2")
+        app_submitted_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 2")
+        cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
+        sysad_submitted_3 = cursor.fetchone()[0]
+        cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 3")
+        web_submitted_3 = cursor.fetchone()[0]
+        cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 3")
+        app_submitted_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
+        cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 1")
+        sysad_completed_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 1")
+        web_completed_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 1")
+        app_completed_1 = cursor.fetchone()[0]
+        cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 2")
+        sysad_completed_2 = cursor.fetchone()[0]
+        cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 2")
+        web_completed_2 = cursor.fetchone()[0]
+        cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 2")
+        app_completed_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 2")
+        cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
+        sysad_completed_3 = cursor.fetchone()[0]
+        cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 3")
+        web_completed_3 = cursor.fetchone()[0]
+        cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 3")
+        app_completed_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
+        
+        cursor.close()
+        conn.close()
+        return render_template('attendance.html', mentee=mentee, user_type=user_type, rollnumber=rollnumber, domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
