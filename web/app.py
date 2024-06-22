@@ -33,7 +33,7 @@ def login():
             elif user_type == 'mentee':
                 return redirect(url_for('mentee_dashboard'))
         else:
-            flash('Invalid username or password. Please try again.', 'danger')
+            flash('Invalid username or password. Please try again.')
     return redirect(url_for('index'))
 
 @app.route('/logout')
