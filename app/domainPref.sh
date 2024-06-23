@@ -60,7 +60,7 @@ case "$x" in
 				chown $USER:${USER}_group ~/$pref1 
 				chmod -R 770 ~/$pref1
 				echo "your domain preference has been set"
-    				pref_no=1
+    				pref_no='1'
 				export pref_no
     				export pref1
 			fi
@@ -83,7 +83,7 @@ case "$x" in
 				chown $USER:${USER}_group ~/$pref2
 				chmod -R 770 ~/$pref2
 				echo "your domain preference has been set"
-    				pref_no=2
+    				pref_no='2'
     				export pref_no
     				export pref1
 				export pref2
@@ -111,7 +111,7 @@ case "$x" in
 				chown $USER:${USER}_group ~/$pref3
 				chmod -R 770 ~/$pref3
 				echo "your domain preference has been set"
-    				pref_no=2
+    				pref_no='3'
     				export pref_no
     				export pref1
 				export pref2
