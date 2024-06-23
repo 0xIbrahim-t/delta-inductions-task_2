@@ -161,7 +161,7 @@ def mentee_dashboard():
         return render_template('mentee.html', mentee=mentee, rollnumber=rollnumber, domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
     return redirect(url_for('index'))
 
-@app.route('<role>/<mentee>')
+@app.route('/<role>/<mentee>')
 def mentee_dashboard_other(mentee):
     if 'user_type' in session and session['user_type'] in ['core', 'mentor']:
         conn = connect_db()
@@ -217,7 +217,7 @@ def mentee_dashboard_other(mentee):
         return render_template('mentee.html', mentee=mentee, user_type=user_type, rollnumber=rollnumber, domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
     return redirect(url_for('index'))
 
-@app.route('core/<role>/<mentee>')
+@app.route('/core/<role>/<mentee>')
 def mentee_dashboard_others(mentee):
     if 'user_type' in session and session['user_type'] == 'core':
         conn = connect_db()
