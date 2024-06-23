@@ -60,7 +60,9 @@ case "$x" in
 				chown $USER:${USER}_group ~/$pref1 
 				chmod -R 770 ~/$pref1
 				echo "your domain preference has been set"
-    				mysql -h "db" -u "username" -p"password" -D "Task_db" -e "UPDATE web_users SET domain_1 = $pref1 WHERE username = $USER;"
+    				pref_no=1
+				export pref_no
+    				export pref1
 			fi
 		fi
 		;;
@@ -81,8 +83,10 @@ case "$x" in
 				chown $USER:${USER}_group ~/$pref2
 				chmod -R 770 ~/$pref2
 				echo "your domain preference has been set"
-    				mysql -h "db" -u "username" -p"password" -D "Task_db" -e "UPDATE web_users SET domain_1 = $pref1 WHERE username = $USER;"
-				mysql -h "db" -u "username" -p"password" -D "Task_db" -e "UPDATE web_users SET domain_2 = $pref2 WHERE username = $USER;"
+    				pref_no=2
+    				export pref_no
+    				export pref1
+				export pref2
 			fi
 		fi
 		;;
@@ -107,9 +111,11 @@ case "$x" in
 				chown $USER:${USER}_group ~/$pref3
 				chmod -R 770 ~/$pref3
 				echo "your domain preference has been set"
-    				mysql -h "db" -u "username" -p"password" -D "Task_db" -e "UPDATE web_users SET domain_1 = $pref1 WHERE username = $USER;"
-				mysql -h "db" -u "username" -p"password" -D "Task_db" -e "UPDATE web_users SET domain_2 = $pref2 WHERE username = $USER;"
-    				mysql -h "db" -u "username" -p"password" -D "Task_db" -e "UPDATE web_users SET domain_3 = $pref3 WHERE username = $USER;"
+    				pref_no=2
+    				export pref_no
+    				export pref1
+				export pref2
+    				export pref3
 			fi
 		fi
 		;;
