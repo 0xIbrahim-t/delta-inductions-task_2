@@ -132,13 +132,13 @@ def mentee_dashboard():
         cursor.execute("SELECT Web FROM {session['username']}_task_submitted WHERE Task_number = 2")
         web_submitted_2 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {session['username']}_task_submitted WHERE Task_number = 2")
-        app_submitted_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {session['username']}_task_submitted WHERE Task_number = 2")
+        app_submitted_2 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {session['username']}_task_submitted WHERE Task_number = 3")
         sysad_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {session['username']}_task_submitted WHERE Task_number = 3")
         web_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {session['username']}_task_submitted WHERE Task_number = 3")
-        app_submitted_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {session['username']}_task_submitted WHERE Task_number = 3")
+        app_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {session['username']}_task_completed WHERE Task_number = 1")
         sysad_completed_1 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {session['username']}_task_completed WHERE Task_number = 1")
@@ -150,14 +150,13 @@ def mentee_dashboard():
         cursor.execute("SELECT Web FROM {session['username']}_task_completed WHERE Task_number = 2")
         web_completed_2 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {session['username']}_task_completed WHERE Task_number = 2")
-        app_completed_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {session['username']}_task_completed WHERE Task_number = 2")
+        app_completed_2 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {session['username']}_task_completed WHERE Task_number = 3")
         sysad_completed_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {session['username']}_task_completed WHERE Task_number = 3")
         web_completed_3 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {session['username']}_task_completed WHERE Task_number = 3")
-        app_completed_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {session['username']}_task_completed WHERE Task_number = 3")
-        
+        app_completed_3 = cursor.fetchone()[0]
         cursor.close()
         conn.close()
         return render_template('mentee.html', mentee=mentee, rollnumber=rollnumber, allocated_mentor=allocated_mentor domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
@@ -191,13 +190,13 @@ def mentee_dashboard_other(mentee):
         cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 2")
         web_submitted_2 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 2")
-        app_submitted_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 2")
+        app_submitted_2 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
         sysad_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 3")
         web_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 3")
-        app_submitted_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
+        app_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 1")
         sysad_completed_1 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 1")
@@ -209,13 +208,13 @@ def mentee_dashboard_other(mentee):
         cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 2")
         web_completed_2 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 2")
-        app_completed_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 2")
+        app_completed_2 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
         sysad_completed_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 3")
         web_completed_3 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 3")
-        app_completed_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
+        app_completed_3 = cursor.fetchone()[0]
         cursor.close()
         conn.close()
         return render_template('mentee.html', mentee=mentee, rollnumber=rollnumber, allocated_mentor=allocated_mentor domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
@@ -247,13 +246,13 @@ def mentee_dashboard_others(mentee):
         cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 2")
         web_submitted_2 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 2")
-        app_submitted_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 2")
+        app_submitted_2 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
         sysad_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 3")
         web_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 3")
-        app_submitted_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
+        app_submitted_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 1")
         sysad_completed_1 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 1")
@@ -265,13 +264,13 @@ def mentee_dashboard_others(mentee):
         cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 2")
         web_completed_2 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 2")
-        app_completed_2 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 2")
+        app_completed_2 = cursor.fetchone()[0]
         cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
         sysad_completed_3 = cursor.fetchone()[0]
         cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 3")
         web_completed_3 = cursor.fetchone()[0]
         cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 3")
-        app_completed_3 = cursor.fetchone()[0]cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
+        app_completed_3 = cursor.fetchone()[0]
         cursor.close()
         conn.close()
         return render_template('mentee.html', mentee=mentee, rollnumber=rollnumber, allocated_mentor=allocated_mentor, domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
