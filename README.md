@@ -12,4 +12,4 @@
 
 
 
-## You can see the server PHPMyAdmin running on post 8080 and web app running in port 5000, and the menteesDomain.txt in gemini.club
+## You can see the server PHPMyAdmin running on port-8080 and web app running in port-5000, and the menteesDomain.txt in gemini.club
