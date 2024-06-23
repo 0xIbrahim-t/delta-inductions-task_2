@@ -120,3 +120,4 @@ case "$x" in
 		fi
 		;;
 esac
+python3 domain_update.py
