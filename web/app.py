@@ -3,6 +3,8 @@ from flask import Flask, request, render_template, redirect, url_for, session, f
 
 app = Flask(__name__)
 
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+
 def connect_db():
     return mysql.connector.connect(host='db', user='username', password='password', database='Task_db')
 
