@@ -84,7 +84,7 @@ def mentor_dashboard():
         return render_template('mentor.html', name=session['username'], allocated_mentees=allocated_mentees, domain=domain, mentor_capacity=mentor_capacity)
     return redirect(url_for('index'))
 
-@app.route('/core/<mentor>', methods=['GET', 'POST'])
+@app.route('/<mentor>', methods=['GET', 'POST'])
 def mentor_dashboard_other(mentor):
     if 'user_type' in session and session['user_type'] == 'core':
         if request.method == 'POST':
@@ -164,69 +164,13 @@ def mentee_dashboard():
         return render_template('mentee.html', mentee=mentee, rollnumber=rollnumber, allocated_mentor=allocated_mentor, domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
     return redirect(url_for('index'))
 
-@app.route('/<role>/<mentee>')
+@app.route('/<mentee>')
 def mentee_dashboard_other(mentee):
     if 'user_type' in session and session['user_type'] in ['core', 'mentor']:
         conn = connect_db()
         cursor = conn.cursor()
         cursor.execute("SELECT usertype FROM web_users WHERE username = %s", (mentee,))
         user_type = cursor.fetchone()[0]
-        cursor.execute("SELECT rollnumber FROM web_users WHERE username = %s", (mentee,))
-        rollnumber = cursor.fetchone()[0]
-        cursor.execute("SELECT allocated_mentor FROM web_users WHERE username = %s", (mentee,))
-        allocated_mentor = cursor.fetchone()[0]
-        cursor.execute("SELECT domain_1 FROM web_users WHERE username = %s", (mentee,))
-        domain_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT domain_2 FROM web_users WHERE username = %s", (mentee,))
-        domain_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT domain_3 FROM web_users WHERE username = %s", (mentee,))
-        domain_3 = cursor.fetchone()[0]
-        cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 1")
-        sysad_submitted_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 1")
-        web_submitted_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 1")
-        app_submitted_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 2")
-        sysad_submitted_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 2")
-        web_submitted_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 2")
-        app_submitted_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT Sysad FROM {mentee}_task_submitted WHERE Task_number = 3")
-        sysad_submitted_3 = cursor.fetchone()[0]
-        cursor.execute("SELECT Web FROM {mentee}_task_submitted WHERE Task_number = 3")
-        web_submitted_3 = cursor.fetchone()[0]
-        cursor.execute("SELECT App FROM {mentee}_task_submitted WHERE Task_number = 3")
-        app_submitted_3 = cursor.fetchone()[0]
-        cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 1")
-        sysad_completed_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 1")
-        web_completed_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 1")
-        app_completed_1 = cursor.fetchone()[0]
-        cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 2")
-        sysad_completed_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 2")
-        web_completed_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 2")
-        app_completed_2 = cursor.fetchone()[0]
-        cursor.execute("SELECT Sysad FROM {mentee}_task_completed WHERE Task_number = 3")
-        sysad_completed_3 = cursor.fetchone()[0]
-        cursor.execute("SELECT Web FROM {mentee}_task_completed WHERE Task_number = 3")
-        web_completed_3 = cursor.fetchone()[0]
-        cursor.execute("SELECT App FROM {mentee}_task_completed WHERE Task_number = 3")
-        app_completed_3 = cursor.fetchone()[0]
-        cursor.close()
-        conn.close()
-        return render_template('mentee.html', mentee=mentee, rollnumber=rollnumber, allocated_mentor=allocated_mentor, domain_1=domain_1, domain_2=domain_2, domain_3=domain_3, sysad_submitted_1=sysad_submitted_1, web_submitted_1=web_submitted_1, app_submitted_1=app_submitted_1, sysad_submitted_2=sysad_submitted_2, web_submitted_2=web_submitted_2, app_submitted_2=app_submitted_2, sysad_submitted_3=sysad_submitted_3, web_submitted_3=web_submitted_3, app_submitted_3=app_submitted_3, sysad_completed_1=sysad_completed_1, web_completed_1=web_completed_1, app_completed_1=app_completed_1, sysad_completed_2=sysad_completed_2, web_completed_2=web_completed_2, app_completed_2=app_completed_2, sysad_completed_3=sysad_completed_3, web_completed_3=web_completed_3, app_completed_3=app_completed_3)
-    return redirect(url_for('index'))
-
-@app.route('/core/<role>/<mentee>')
-def mentee_dashboard_others(mentee):
-    if 'user_type' in session and session['user_type'] == 'core':
-        conn = connect_db()
-        cursor = conn.cursor()
         cursor.execute("SELECT rollnumber FROM web_users WHERE username = %s", (mentee,))
         rollnumber = cursor.fetchone()[0]
         cursor.execute("SELECT allocated_mentor FROM web_users WHERE username = %s", (mentee,))
