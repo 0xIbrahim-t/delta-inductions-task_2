@@ -22,9 +22,9 @@
         </div>
         <div class="container">
             <div class="button-container">
+              {% for mentee in allocated_mentees %}
                 <form method="post" class="button-form">
-                    <input type="hidden" name="{{ mentee }}" value="{{ mentee }}">
-                    {% for mentee in allocated_mentees %}
+                    <input type="hidden" action="/{{ mentee }}" name="{{ mentee }}" value="{{ mentee }}">
                         <button type="button" class="btn btn-primary" style="margin: 3px;">{{ mentee }}</button>
                     {% endfor %}
                 </form>
