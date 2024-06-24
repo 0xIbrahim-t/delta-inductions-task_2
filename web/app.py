@@ -89,7 +89,7 @@ def mentor_dashboard_other(mentor):
     if 'user_type' in session and session['user_type'] == 'core':
         if request.method == 'POST':
             mentee = request.form.get('mentee')
-            return redirect(url_for('mentee_dashboard_others', role=mentor, mentee=mentee))
+            return redirect(url_for('mentee_dashboard_other', mentee=mentee))
         conn = connect_db()
         cursor = conn.cursor()
         cursor.execute("SELECT domain_2 FROM web_users WHERE username = %s", (mentor,))
