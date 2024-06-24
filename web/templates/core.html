@@ -19,9 +19,9 @@
     </div>
     <div class="container">
         <div class="button-container">
-            <form method="post" class="button-form">
+            {% for mentor in mentors %}
+            <form method="post" action="/{{ mentor }}" class="button-form">
                 <input type="hidden" name="{{ mentor }}" value="{{ mentor }}">
-                {% for mentor in mentors %}
                     <button type="button" class="btn btn-primary" style="margin: 3px;">{{ mentor }}</button>
                 {% endfor %}
             </form>
@@ -36,9 +36,9 @@
     <div class="container">
     
         <div class="button-container">
-            <form method="post" class="button-form">
+            {% for mentee in mentees %}
+            <form method="post" action="/{{ mentee }}" class="button-form">
                 <input type="hidden" name="{{ mentee }}" value="{{ mentee }}">
-                {% for mentee in mentees %}
                     <button type="button" class="btn btn-primary" style="margin: 3px;">{{ mentee }}</button>
                 {% endfor %}
             </form>
