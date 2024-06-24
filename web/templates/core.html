@@ -39,9 +39,9 @@
             {% for mentee in mentees %}
             <form method="post" action="/{{ mentee }}" class="button-form">
                 <input type="hidden" name="{{ mentee }}" value="{{ mentee }}">
-                    <button type="button" class="btn btn-primary" style="margin: 3px;">{{ mentee }}</button>
-                {% endfor %}
+                    <button type="submit" class="btn btn-primary" style="margin: 3px;">{{ mentee }}</button>
             </form>
+            {% endfor %}
         </div>
     </div>
 </body>
