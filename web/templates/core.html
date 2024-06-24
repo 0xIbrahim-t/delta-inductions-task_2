@@ -22,9 +22,9 @@
             {% for mentor in mentors %}
             <form method="post" action="/{{ mentor }}" class="button-form">
                 <input type="hidden" name="{{ mentor }}" value="{{ mentor }}">
-                    <button type="button" class="btn btn-primary" style="margin: 3px;">{{ mentor }}</button>
-                {% endfor %}
+                    <button type="submit" class="btn btn-primary" style="margin: 3px;">{{ mentor }}</button>
             </form>
+            {% endfor %}
         </div>
     </div>
     <br>
