@@ -25,11 +25,6 @@ services:
       - db
     ports:
       - "80:80"
-    environment:
-      DB_HOST: db
-      DB_USER: username
-      DB_PASSWORD: password
-      DB_NAME: Task_db
 
   web:
     build:
@@ -40,11 +35,6 @@ services:
       - db
     ports:
       - "5000:5000"
-    environment:
-      DB_HOST: db
-      DB_USER: username
-      DB_PASSWORD: password
-      DB_NAME: Task_db
 
   phpmyadmin:
     image: phpmyadmin
